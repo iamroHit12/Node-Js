@@ -1,8 +1,7 @@
 const http = require('http');
 const fs = require("fs");
 
-const port = 2000;
-const hostName = "localhost";
+const PORT = process.env.PORT;
 
 const home = fs.readFileSync("./index.html","utf-8");
 
@@ -17,6 +16,6 @@ const server = http.createServer((req,res)=>{
         return res.end("<h1>404 page not found</h1>");
 });
 
-server.listen(port,hostName,()=>{
-    console.log(`server is running on http://${hostName}:${port}`)
+server.listen(PORT,()=>{
+    console.log(`server is running`)
 })
